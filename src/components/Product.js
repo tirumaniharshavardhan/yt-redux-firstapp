@@ -14,17 +14,20 @@ const Product = () => {
 
     const Cards = products.map(product => {
         return (
-            <div className="col-md-3">
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
+            <div className="col-md-3" style={{ marginBottom: '10px' , display: 'flex', justifyContent: 'space-around'}}>
+                <Card style={{ width: '18rem' }} key={product.id} className="h-100">
+                    <div className="text-center">
+                        <Card.Img variant="top" src={product.image} style={{ width: '100px', height: '100px' }} />
+                    </div>
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>{product.title}</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            INR: {product.price}
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
                     </Card.Body>
+                    <Card.Footer>
+                        <Button variant="primary">Add to cart</Button>
+                    </Card.Footer>
                 </Card>
             </div>
         )
